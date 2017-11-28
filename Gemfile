@@ -18,4 +18,5 @@ gem "jekyll", "~> 3.6.2"
 group :jekyll_plugins do
   gem "autoprefixer-rails"
   gem "jekyll-assets", git: "https://github.com/jekyll/jekyll-assets.git"
+  gem 'uglifier'
 end

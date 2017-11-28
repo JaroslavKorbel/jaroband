@@ -55,4 +55,4 @@ assets:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-include: ['_pages', '.htaccess']
+include: ['_pages']

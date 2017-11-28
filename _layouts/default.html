@@ -1,4 +1,8 @@
-<!doctype html>
+---
+layout: compress
+---
+
+<!DOCTYPE html>
 <html class="l-Site l-Site--{{page.layout}}  no-js" lang="{{ page.lang | default: site.lang | default: "en" }}" prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
@@ -20,7 +24,7 @@
     {% asset main !type %}
   </head>
   <body class="l-Site-body">
-    <header class="l-Header" role="banner" style="background-image: url({{ assets[page.background].digest_path }});">
+    <header class="l-Header" role="banner" style='background-image: url({% asset "{{ page.background }}" @path %});'>
       <div class="l-Header-bar">
         {% assign default_paths = site.pages | map: "path" | sort: "order" %}
         {% assign page_paths = site.header_pages | default: default_paths %}
