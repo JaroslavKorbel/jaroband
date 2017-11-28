@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Components.Event
+   ========================================================================== */
+
+.c-Event {
+  margin-bottom: 0;
+
+  @include media(">=medium") {
+    padding-left: 130px;
+  }
+}
+
+.c-Event-title {
+  font-weight: 600;
+
+  > a {
+    border-bottom: 1px solid $Color-secondary;
+    line-height: 1;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: transparent;
+    }
+
+    > em {
+      font-size: 90%;
+    }
+  }
+}
+
+.c-Event-date {
+  @include media(">=medium") {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+  }
+}

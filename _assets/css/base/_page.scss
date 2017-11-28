@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Base.Page
+   ========================================================================== */
+
+/**
+ * High-, page-level styling.
+ *
+ * 1. Prevent margin and border from affecting element width.
+ * 2. Ensure the page always fills at least the entire height of the viewport.
+ * 3. Set the default `font-size`, `font-weight` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 4. Force scrollbars to always be visible to prevent awkward jumps when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 5. Prevent certain mobile browsers from automatically zooming fonts.
+ */
+
+html {
+  box-sizing: border-box; /* [1] */
+  height: 100%; /* [2] */
+  font-family: $Base-fontFamily;
+  font-weight: $Base-normalWeight;/* [3] */
+  line-height: $Base-lineHeight; /* [3] */
+  overflow-y: scroll; /* [4] */
+
+  -webkit-text-size-adjust: 100%; /* [5] */
+      -ms-text-size-adjust: 100%; /* [5] */
+}

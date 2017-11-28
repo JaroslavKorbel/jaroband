@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Generic.Reset
+   ========================================================================== */
+
+/**
+ * A thin layer on top of normalize.css that provides a starting point more
+ * suitable for web applications.
+ */
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+ol,
+p,
+pre,
+ul {
+  margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+iframe {
+  border: 0;
+}

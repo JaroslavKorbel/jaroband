@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Tools.Mixins
+   ========================================================================== */
+
+/**
+ * Generates column classes based on the defined breakpoints,
+ * named with the convention `.u-sizexofy@breakpoint`, where
+ * `x` is a subdivision of `y`.
+ *
+ * @include columns(3, 4);
+ *
+ * Generates:
+ *  .u-size1of3@smallOnly
+ *  .u-size1of3@smallUp
+ *  .u-size1of3@smallDown
+ *  .u-size1of3@mediumOnly
+ *  .u-size1of3@mediumUp
+ *  .u-size1of3@mediumDown
+ *  .u-size1of3@largeUp
+ *  .u-size1of3@largeDown
+ *  .u-size2of3@smallOnly
+ *  .u-size2of3@smallUp
+ *  .u-size2of3@smallDown
+ *  .u-size2of3@mediumOnly
+ *  .u-size2of3@mediumUp
+ *  .u-size2of3@mediumDown
+ *  .u-size2of3@largeUp
+ *  .u-size2of3@largeDown
+ *
+ *  (...)
+ */
+
+@mixin columns($columns...) {
+  @each $i in $columns {
+    @for $n from 1 through $i {
+      .u-size#{$n}of#{$i} {
+        flex-basis: auto !important;
+        width: ($n / $i) * 100% !important;
+      }
+    }
+  }
+
+  @for $i from 1 through $breakpointsLength {
+    $breakpoint: nth($breakpoints, $i);
+    $breakpointName: nth($breakpoint, 1);
+
+    @if $i < $breakpointsLength {
+      $breakpointNext: nth($breakpoints, $i + 1);
+      $breakpointNameNext: nth($breakpointNext, 1);
+
+      @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+        @each $i in $columns {
+          @for $n from 1 through $i {
+            .u-size#{$n}of#{$i}\@#{$breakpointName}Only {
+              flex-basis: auto !important;
+              width: ($n / $i) * 100% !important;
+            }
+          }
+        }
+      }
+
+      @include media(print) {
+        @each $i in $columns {
+          @for $n from 1 through $i {
+            .u-size#{$n}of#{$i}\@#{$breakpointName}Only {
+              flex-basis: auto !important;
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+
+    @include media(#{'>=' + $breakpointName}) {
+      @each $i in $columns {
+        @for $n from 1 through $i {
+          .u-size#{$n}of#{$i}\@#{$breakpointName}Up {
+            flex-basis: auto !important;
+            width: ($n / $i) * 100% !important;
+          }
+        }
+      }
+    }
+
+    @include media(#{'<' + $breakpointName}) {
+      @each $i in $columns {
+        @for $n from 1 through $i {
+          .u-size#{$n}of#{$i}\@#{$breakpointName}Down {
+            flex-basis: auto !important;
+            width: ($n / $i) * 100% !important;
+          }
+        }
+      }
+    }
+
+    @include media(print) {
+      @each $i in $columns {
+        @for $n from 1 through $i {
+          .u-size#{$n}of#{$i}\@#{$breakpointName}Up {
+            flex-basis: auto !important;
+            width: 100% !important;
+          }
+        }
+      }
+
+      @each $i in $columns {
+        @for $n from 1 through $i {
+          .u-size#{$n}of#{$i}\@#{$breakpointName}Down {
+            flex-basis: auto !important;
+            width: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/**
+ * Mixin for rem units within px fallback.
+ * http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ *
+ * .foo {
+ *     @include rem(margin, 10, 20, 30, 40);
+ * }
+ *
+ * .foo {
+ *     margin: 160px 320px 480px 640px;
+ *     margin: 10rem 20rem 30rem 40rem;
+ * }
+ *
+ */
+
+@mixin rem($property, $values...) {
+  $max: length($values);
+  $basicSize: strip-unit(16px);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value/$basicSize}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}

@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Components.Menu
+   ========================================================================== */
+
+.c-Menu {
+  @include rem(font-size, 16px);
+  padding: 0;
+  margin: 0;
+  color: $Color-primary;
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 500;
+  list-style: none;
+  text-transform: uppercase;
+
+  @include media(">=medium") {
+    @include rem(font-size, 18px);
+  }
+
+  @include media(">=large") {
+    @include rem(font-size, 16px);
+  }
+
+  @include media(">=extralarge") {
+    @include rem(font-size, 18px);
+  }
+}
+
+.c-Menu-item {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  @include media(">=medium") {
+    margin-right: 20px;
+    margin-left: 0;
+  }
+
+  @include media(">=large") {
+    margin-right: 15px;
+  }
+
+  @include media(">=extralarge") {
+    margin-right: 20px;
+  }
+}
+
+.c-Menu-link {
+  transition: color 0.2s;
+
+  &:hover {
+    color: lighten($Color-primary, 20%);
+  }
+}

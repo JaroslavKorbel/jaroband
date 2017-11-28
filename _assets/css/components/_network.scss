@@ -1,0 +1,65 @@
+/* ==========================================================================
+   Components.Network
+   ========================================================================== */
+
+.c-Network {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-Network-item {
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  @include media(">=medium") {
+    margin-right: 0;
+  }
+}
+
+.c-Network-link {
+  > svg {
+    width: 24px;
+    height: 24px;
+
+    > path {
+      fill: $Color-primary;
+      transition: fill 0.2s;
+    }
+
+    .c-Network-item--bandcamp & {
+      &:hover {
+        > path {
+          fill: #629aa9;
+        }
+      }
+    }
+
+    .c-Network-item--soundcloud & {
+      width: 31px;
+
+      &:hover {
+        > path {
+          fill: #ff3300;
+        }
+      }
+    }
+
+    .c-Network-item--youtube & {
+      &:hover {
+        > path {
+          fill: #ff0000;
+        }
+      }
+    }
+
+    .c-Network-item--facebook & {
+      &:hover {
+        > path {
+          fill: #3b5998;
+        }
+      }
+    }
+  }
+}

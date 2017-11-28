@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Utils.Display
+   ========================================================================== */
+
+.u-inline {
+  display: inline !important;
+}
+
+/**
+ * 1. Fix for Firefox bug: an image styled `max-width:100%` within an
+ * inline-block will display at its default size, and not limit its width to
+ * 100% of an ancestral container.
+ */
+
+.u-inlineBlock {
+  display: inline-block !important;
+  max-width: 100%; /* 1 */
+}
+
+.u-block {
+  display: block !important;
+}
+
+.u-table {
+  display: table !important;
+}
+
+.u-tableCell {
+  display: table-cell !important;
+}
+
+.u-tableRow {
+  display: table-row !important;
+}
+
+.u-visible {
+  visibility: visible !important;
+}
+
+.u-invisible {
+  visibility: hidden !important;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+
+.u-hiddenVisually {
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-inline\@#{$breakpointName}Only {
+        display: inline !important;
+      }
+
+      .u-inlineBlock\@#{$breakpointName}Only {
+        display: inline-block !important;
+        max-width: 100%;
+      }
+
+      .u-block\@#{$breakpointName}Only {
+        display: block !important;
+      }
+
+      .u-table\@#{$breakpointName}Only {
+        display: table !important;
+      }
+
+      .u-tableCell\@#{$breakpointName}Only {
+        display: table-cell !important;
+      }
+
+      .u-tableRow\@#{$breakpointName}Only {
+        display: table-row !important;
+      }
+
+      .u-visible\@#{$breakpointName}Only {
+        visibility: visible !important;
+      }
+
+      .u-invisible\@#{$breakpointName}Only {
+        visibility: hidden !important;
+      }
+
+      .u-hidden\@#{$breakpointName}Only {
+        display: none !important;
+      }
+
+      .u-hiddenVisually\@#{$breakpointName}Only {
+        position: absolute !important;
+        overflow: hidden !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-inline\@#{$breakpointName}Up {
+      display: inline !important;
+    }
+
+    .u-inlineBlock\@#{$breakpointName}Up {
+      display: inline-block !important;
+      max-width: 100%;
+    }
+
+    .u-block\@#{$breakpointName}Up {
+      display: block !important;
+    }
+
+    .u-table\@#{$breakpointName}Up {
+      display: table !important;
+    }
+
+    .u-tableCell\@#{$breakpointName}Up {
+      display: table-cell !important;
+    }
+
+    .u-tableRow\@#{$breakpointName}Up {
+      display: table-row !important;
+    }
+
+    .u-visible\@#{$breakpointName}Up {
+      visibility: visible !important;
+    }
+
+    .u-invisible\@#{$breakpointName}Up {
+      visibility: hidden !important;
+    }
+
+    .u-hidden\@#{$breakpointName}Up {
+      display: none !important;
+    }
+
+    .u-hiddenVisually\@#{$breakpointName}Up {
+      position: absolute !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-inline\@#{$breakpointName}Down {
+      display: inline !important;
+    }
+
+    .u-inlineBlock\@#{$breakpointName}Down {
+      display: inline-block !important;
+      max-width: 100%;
+    }
+
+    .u-block\@#{$breakpointName}Down {
+      display: block !important;
+    }
+
+    .u-table\@#{$breakpointName}Down {
+      display: table !important;
+    }
+
+    .u-tableCell\@#{$breakpointName}Down {
+      display: table-cell !important;
+    }
+
+    .u-tableRow\@#{$breakpointName}Down {
+      display: table-row !important;
+    }
+
+    .u-visible\@#{$breakpointName}Down {
+      visibility: visible !important;
+    }
+
+    .u-invisible\@#{$breakpointName}Down {
+      visibility: hidden !important;
+    }
+
+    .u-hidden\@#{$breakpointName}Down {
+      display: none !important;
+    }
+
+    .u-hiddenVisually\@#{$breakpointName}Down {
+      position: absolute !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+    }
+  }
+}

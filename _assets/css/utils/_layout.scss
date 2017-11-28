@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Utils.Layout
+   ========================================================================== */
+
+/**
+ * Contain floats
+ *
+ * Make an element expand to contain floated children.
+ * Uses pseudo-elements (micro clearfix).
+ *
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of the
+ *    element.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.u-cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+  clear: both;
+}
+
+/**
+ * New block formatting context
+ *
+ * This affords some useful properties to the element. It won't wrap under
+ * floats. Will also contain any floated children.
+
+ * N.B. This will clip overflow. Use the alternative method below if this is
+ * problematic.
+ */
+
+.u-nbfc {
+  overflow: hidden !important;
+}
+
+/**
+ * New block formatting context (alternative)
+ *
+ * Alternative method when overflow must not be clipped.
+ *
+ * 1. Create a new block formatting context (NBFC).
+ * 2. Avoid shrink-wrap behaviour of table-cell.
+ *
+ * N.B. This breaks down in some browsers when elements within this element
+ * exceed its width.
+ */
+
+.u-nbfcAlt {
+  display: table-cell !important; /* 1 */
+  width: 10000px !important; /* 2 */
+}
+
+/**
+ * Floats
+ */
+
+.u-floatLeft {
+  float: left !important;
+}
+
+.u-floatRight {
+  float: right !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-cf:after\@#{$breakpointName}Only {
+        content: " ";
+        display: table;
+        clear: both;
+      }
+
+      .u-nbfc\@#{$breakpointName}Only {
+        overflow: hidden !important;
+      }
+
+      .u-nbfcAlt\@#{$breakpointName}Only {
+        display: table-cell !important;
+        width: 10000px !important;
+      }
+
+      .u-floatLeft\@#{$breakpointName}Only {
+        float: left !important;
+      }
+
+      .u-floatRight\@#{$breakpointName}Only {
+        float: right !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-cf:after\@#{$breakpointName}Up {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+
+    .u-nbfc\@#{$breakpointName}Up {
+      overflow: hidden !important;
+    }
+
+    .u-nbfcAlt\@#{$breakpointName}Up {
+      display: table-cell !important;
+      width: 10000px !important;
+    }
+
+    .u-floatLeft\@#{$breakpointName}Up {
+      float: left !important;
+    }
+
+    .u-floatRight\@#{$breakpointName}Up {
+      float: right !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-cf:after\@#{$breakpointName}Down {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+
+    .u-nbfc\@#{$breakpointName}Down {
+      overflow: hidden !important;
+    }
+
+    .u-nbfcAlt\@#{$breakpointName}Down {
+      display: table-cell !important;
+      width: 10000px !important;
+    }
+
+    .u-floatLeft\@#{$breakpointName}Down {
+      float: left !important;
+    }
+
+    .u-floatRight\@#{$breakpointName}Down {
+      float: right !important;
+    }
+  }
+}

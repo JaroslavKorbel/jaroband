@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Utils.Size
+   ========================================================================== */
+
+/* Proportional widths and spaces
+   ========================================================================== */
+
+// @include columns(2);
+
+
+
+/* Intrinsic widths
+   ========================================================================== */
+
+/**
+ * Make an element shrink wrap its content.
+ */
+
+ .u-sizeFit {
+  flex-basis: auto !important;
+}
+
+/**
+ * Make an element fill the remaining space.
+ *
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ *    http://git.io/vllC7
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ *    http://git.io/vllMt
+ */
+
+.u-sizeFill {
+  flex: 1 1 0% !important; /* 1 */
+  flex-basis: 0% !important; /* 2 */
+}
+
+/**
+ * An alternative method to make an element fill the remaining space.
+ * Distributes space based on the initial width and height of the element
+ *
+ * http://www.w3.org/TR/css-flexbox/images/rel-vs-abs-flex.svg
+ */
+
+.u-sizeFillAlt {
+  flex: 1 1 auto !important;
+  flex-basis: auto !important;
+}
+
+/**
+ * Make an element the width of its parent.
+ */
+
+ .u-sizeFull {
+  width: 100% !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-sizeFit\@#{$breakpointName}Only {
+        flex-basis: auto !important;
+      }
+
+      .u-sizeFill\@#{$breakpointName}Only {
+        flex: 1 1 0% !important;
+        flex-basis: 0% !important;
+      }
+
+      .u-sizeFillAlt\@#{$breakpointName}Only {
+        flex: 1 1 auto !important;
+        flex-basis: auto !important;
+      }
+
+      .u-sizeFull\@#{$breakpointName}Only {
+        width: 100% !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-sizeFit\@#{$breakpointName}Up {
+      flex-basis: auto !important;
+    }
+
+    .u-sizeFill\@#{$breakpointName}Up {
+      flex: 1 1 0% !important;
+      flex-basis: 0% !important;
+    }
+
+    .u-sizeFillAlt\@#{$breakpointName}Up {
+      flex: 1 1 auto !important;
+      flex-basis: auto !important;
+    }
+
+    .u-sizeFull\@#{$breakpointName}Up {
+      width: 100% !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-sizeFit\@#{$breakpointName}Down {
+      flex-basis: auto !important;
+    }
+
+    .u-sizeFill\@#{$breakpointName}Down {
+      flex: 1 1 0% !important;
+      flex-basis: 0% !important;
+    }
+
+    .u-sizeFillAlt\@#{$breakpointName}Down {
+      flex: 1 1 auto !important;
+      flex-basis: auto !important;
+    }
+
+    .u-sizeFull\@#{$breakpointName}Down {
+      width: 100% !important;
+    }
+  }
+}

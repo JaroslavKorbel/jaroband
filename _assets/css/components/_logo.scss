@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Components.Logo
+   ========================================================================== */
+
+.c-Logo {
+  width: 356px;
+  height: 92px;
+  margin-bottom: 0;
+  color: $Color-primary;
+  font-family: $Font-frankRuhlLibre;
+  font-weight: normal;
+  text-align: center;
+}
+
+.c-Logo-link {
+  display: block;
+}
+
+.c-Logo-date {
+  position: relative;
+  display: block;
+  font-size: 12px;
+  line-height: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 142px;
+    height: 1px;
+    background-color: $Color-primary;
+  }
+
+  &:before {
+    left: 1px;
+  }
+
+  &:after {
+    right: 1px;
+  }
+}
+
+.c-Logo-album {
+  display: block;
+  margin-top: 12px;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.c-Logo-author {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1;
+}

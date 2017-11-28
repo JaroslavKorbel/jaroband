@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Utils.Align
+   ========================================================================== */
+
+/**
+ * Vertical alignment utilities
+ * Depends on an appropriate `display` value.
+ */
+
+.u-alignBaseline {
+  vertical-align: baseline !important;
+}
+
+.u-alignBottom {
+  vertical-align: bottom !important;
+}
+
+.u-alignMiddle {
+  vertical-align: middle !important;
+}
+
+.u-alignTop {
+  vertical-align: top !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-alignBaseline\@#{$breakpointName}Only {
+        vertical-align: baseline !important;
+      }
+
+      .u-alignBottom\@#{$breakpointName}Only {
+        vertical-align: bottom !important;
+      }
+
+      .u-alignMiddle\@#{$breakpointName}Only {
+        vertical-align: middle !important;
+      }
+
+      .u-alignTop\@#{$breakpointName}Only {
+        vertical-align: top !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-alignBaseline\@#{$breakpointName}Up {
+      vertical-align: baseline !important;
+    }
+
+    .u-alignBottom\@#{$breakpointName}Up {
+      vertical-align: bottom !important;
+    }
+
+    .u-alignMiddle\@#{$breakpointName}Up {
+      vertical-align: middle !important;
+    }
+
+    .u-alignTop\@#{$breakpointName}Up {
+      vertical-align: top !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-alignBaseline\@#{$breakpointName}Down {
+      vertical-align: baseline !important;
+    }
+
+    .u-alignBottom\@#{$breakpointName}Down {
+      vertical-align: bottom !important;
+    }
+
+    .u-alignMiddle\@#{$breakpointName}Down {
+      vertical-align: middle !important;
+    }
+
+    .u-alignTop\@#{$breakpointName}Down {
+      vertical-align: top !important;
+    }
+  }
+}

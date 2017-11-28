@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Utils.Space
+   ========================================================================== */
+
+/**
+ * Reset all spaces
+ */
+
+.u-paddingA {
+  padding: 0 !important;
+}
+
+.u-marginA {
+  margin: 0 !important;
+}
+
+/**
+ * Reset vertical spaces
+ */
+
+.u-paddingV {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.u-marginV {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/**
+ * Reset horizontal spaces
+ */
+
+.u-paddingH {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.u-marginH {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/**
+ * Reset top space
+ */
+
+.u-paddingT {
+  padding-top: 0 !important;
+}
+
+.u-marginT {
+  margin-top: 0 !important;
+}
+
+/**
+ * Reset right space
+ */
+
+.u-paddingR {
+  padding-right: 0 !important;
+}
+
+.u-marginR {
+  margin-right: 0 !important;
+}
+
+/**
+ * Reset bottom space
+ */
+
+.u-paddingB {
+  padding-bottom: 0 !important;
+}
+
+.u-marginB {
+  margin-bottom: 0 !important;
+}
+
+/**
+ * Reset left space
+ */
+
+.u-paddingL {
+  padding-left: 0 !important;
+}
+
+.u-marginL {
+  margin-left: 0 !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-paddingA\@#{$breakpointName}Only {
+        padding: 0 !important;
+      }
+
+      .u-marginA\@#{$breakpointName}Only {
+        margin: 0 !important;
+      }
+
+      .u-paddingV\@#{$breakpointName}Only {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+
+      .u-marginV\@#{$breakpointName}Only {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
+      .u-paddingH\@#{$breakpointName}Only {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
+
+      .u-marginH\@#{$breakpointName}Only {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }
+
+      .u-paddingT\@#{$breakpointName}Only {
+        padding-top: 0 !important;
+      }
+
+      .u-marginT\@#{$breakpointName}Only {
+        margin-top: 0 !important;
+      }
+
+      .u-paddingR\@#{$breakpointName}Only {
+        padding-right: 0 !important;
+      }
+
+      .u-marginR\@#{$breakpointName}Only {
+        margin-right: 0 !important;
+      }
+
+      .u-paddingB\@#{$breakpointName}Only {
+        padding-bottom: 0 !important;
+      }
+
+      .u-marginB\@#{$breakpointName}Only {
+        margin-bottom: 0 !important;
+      }
+
+      .u-paddingL\@#{$breakpointName}Only {
+        padding-left: 0 !important;
+      }
+
+      .u-marginL\@#{$breakpointName}Only {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-paddingA\@#{$breakpointName}Up {
+      padding: 0 !important;
+    }
+
+    .u-marginA\@#{$breakpointName}Up {
+      margin: 0 !important;
+    }
+
+    .u-paddingV\@#{$breakpointName}Up {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .u-marginV\@#{$breakpointName}Up {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .u-paddingH\@#{$breakpointName}Up {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    .u-marginH\@#{$breakpointName}Up {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    .u-paddingT\@#{$breakpointName}Up {
+      padding-top: 0 !important;
+    }
+
+    .u-marginT\@#{$breakpointName}Up {
+      margin-top: 0 !important;
+    }
+
+    .u-paddingR\@#{$breakpointName}Up {
+      padding-right: 0 !important;
+    }
+
+    .u-marginR\@#{$breakpointName}Up {
+      margin-right: 0 !important;
+    }
+
+    .u-paddingB\@#{$breakpointName}Up {
+      padding-bottom: 0 !important;
+    }
+
+    .u-marginB\@#{$breakpointName}Up {
+      margin-bottom: 0 !important;
+    }
+
+    .u-paddingL\@#{$breakpointName}Up {
+      padding-left: 0 !important;
+    }
+
+    .u-marginL\@#{$breakpointName}Up {
+      margin-left: 0 !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-paddingA\@#{$breakpointName}Down {
+      padding: 0 !important;
+    }
+
+    .u-marginA\@#{$breakpointName}Down {
+      margin: 0 !important;
+    }
+
+    .u-paddingV\@#{$breakpointName}Down {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .u-marginV\@#{$breakpointName}Down {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .u-paddingH\@#{$breakpointName}Down {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    .u-marginH\@#{$breakpointName}Down {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    .u-paddingT\@#{$breakpointName}Down {
+      padding-top: 0 !important;
+    }
+
+    .u-marginT\@#{$breakpointName}Down {
+      margin-top: 0 !important;
+    }
+
+    .u-paddingR\@#{$breakpointName}Down {
+      padding-right: 0 !important;
+    }
+
+    .u-marginR\@#{$breakpointName}Down {
+      margin-right: 0 !important;
+    }
+
+    .u-paddingB\@#{$breakpointName}Down {
+      padding-bottom: 0 !important;
+    }
+
+    .u-marginB\@#{$breakpointName}Down {
+      margin-bottom: 0 !important;
+    }
+
+    .u-paddingL\@#{$breakpointName}Down {
+      padding-left: 0 !important;
+    }
+
+    .u-marginL\@#{$breakpointName}Down {
+      margin-left: 0 !important;
+    }
+  }
+}

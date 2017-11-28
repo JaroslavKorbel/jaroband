@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Components.Album
+   ========================================================================== */
+
+$containerWidth:  1440;
+$containerHeight: 768;
+
+$offset:          -40;
+$offsetLandscape: 0;
+$offsetMedium:    40;
+
+@mixin position($top, $left) {
+  top: percentage($top / $containerHeight);
+  left: percentage($left / $containerWidth);
+}
+
+@mixin width($width) {
+  width: percentage($width / $containerWidth);
+}
+
+@mixin ration($width, $height) {
+  padding-bottom: percentage($height / $width);
+}
+
+.c-Album {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-Album--list {
+  height: auto;
+}
+
+.c-Album-item {
+  position: absolute;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 0;
+  }
+
+  .c-Album--list & {
+    position: static;
+    width: auto;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.c-Album-item--1 {
+  @include position(221 - $offset, 301);
+  @include width(156);
+
+  &:before {
+    @include ration(157, 156);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(221 - $offsetLandscape, 301);
+  }
+
+  @include media(">=medium") {
+    @include position(221 - $offsetMedium, 301);
+  }
+}
+
+.c-Album-item--2 {
+  @include position(265 - $offset, 958);
+  @include width(101);
+
+  &:before {
+    @include ration(101, 101);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(265 - $offsetLandscape, 958);
+  }
+
+  @include media(">=medium") {
+    @include position(265 - $offsetMedium, 958);
+  }
+}
+
+.c-Album-item--3 {
+  @include position(246 - $offset, 726);
+  @include width(142);
+
+  &:before {
+    @include ration(142, 142);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(246 - $offsetLandscape, 726);
+  }
+
+  @include media(">=medium") {
+    @include position(246 - $offsetMedium, 726);
+  }
+}
+
+.c-Album-item--4 {
+  @include position(555 - $offset, 301);
+  @include width(130);
+
+  &:before {
+    @include ration(131, 130);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(555 - $offsetLandscape, 301);
+  }
+
+  @include media(">=medium") {
+    @include position(555 - $offsetMedium, 301);
+  }
+}
+
+.c-Album-item--5 {
+  @include position(340 - $offset, 430);
+  @include width(246);
+
+  &:before {
+    @include ration(245, 246);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(340 - $offsetLandscape, 430);
+  }
+
+  @include media(">=medium") {
+    @include position(340 - $offsetMedium, 430);
+  }
+}
+
+.c-Album-item--6 {
+  @include position(471 - $offset, 711);
+  @include width(105);
+
+  &:before {
+    @include ration(105, 105);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(471 - $offsetLandscape, 711);
+  }
+
+  @include media(">=medium") {
+    @include position(471 - $offsetMedium, 711);
+  }
+}
+
+.c-Album-item--7 {
+  @include position(192 - $offset, 563);
+  @include width(115);
+
+  &:before {
+    @include ration(115, 115);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(192 - $offsetLandscape, 563);
+  }
+
+  @include media(">=medium") {
+    @include position(192 - $offsetMedium, 563);
+  }
+}
+
+.c-Album-item--8 {
+  @include position(411 - $offset, 881);
+  @include width(254);
+
+  &:before {
+    @include ration(255, 254);
+  }
+
+  @include media("<medium", "landscape") {
+    @include position(411 - $offsetLandscape, 881);
+  }
+
+  @include media(">=medium") {
+    @include position(411 - $offsetMedium, 881);
+  }
+}
+
+.c-Album-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.6s;
+  }
+
+  &:hover {
+    > img:last-child {
+      opacity: 0;
+    }
+  }
+
+  .c-Album--list & {
+    position: static;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $Color-secondary;
+    line-height: 1;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}

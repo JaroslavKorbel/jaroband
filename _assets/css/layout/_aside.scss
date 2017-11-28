@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Layout.Aside
+   ========================================================================== */
+
+.l-Aside-title {
+  @include rem(font-size, 20px);
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.l-Aside-wrapEvent {
+  position: relative;
+  padding-bottom: $Base-unitV;
+  margin-bottom: $Base-unitV;
+  border-bottom: 1px solid #ddd;
+
+  &:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: 0;
+  }
+}

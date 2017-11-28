@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Base.Typography
+   ========================================================================== */
+
+/**
+ * Basic links behavior.
+ */
+
+a {
+  color: $Base-colorLinks;
+  text-decoration: none;
+  transition: color 0.35s;
+}
+
+a:hover {
+  color: $Base-colorLinksHover;
+}
+
+a:focus {
+  outline: 0;
+}
+
+
+
+/**
+ * Basic strong weight.
+ */
+
+b,
+strong {
+  font-weight: $Base-strongWeight;
+}
+
+
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+
+
+
+/**
+ * Normalize font family.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}

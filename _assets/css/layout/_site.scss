@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Layout.Site
+   ========================================================================== */
+
+.l-Site {
+  @include rem(font-size, $Base-fontSize);
+  background-color: $Base-colorBackground;
+  color: $Base-colorText;
+
+  & *::-moz-selection {
+    background: $Base-selectionBackground;
+    color: $Base-selectionText;
+    text-shadow: none;
+  }
+
+  & *::selection {
+    background: $Base-selectionBackground;
+    color: $Base-selectionText;
+    text-shadow: none;
+  }
+}
+
+.l-Site-body {
+  height: 100%;
+}

@@ -1,0 +1,136 @@
+/* ==========================================================================
+   Utils.Position
+   ========================================================================== */
+
+.u-posAbsolute {
+  position: absolute !important;
+}
+
+/**
+ * Pins to all corners by default. But when a width and/or height are
+ * provided, the element will be centered in its nearest relatively-positioned
+ * ancestor.
+ */
+
+.u-posAbsoluteCenter {
+  bottom: 0 !important;
+  left: 0 !important;
+  margin: auto !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+}
+
+/**
+ * 1. Make sure fixed elements are promoted into a new layer, for performance
+ *    reasons.
+ */
+
+.u-posFixed {
+  position: fixed !important;
+  backface-visibility: hidden; /* 1 */
+}
+
+.u-posRelative {
+  position: relative !important;
+}
+
+.u-posStatic {
+  position: static !important;
+}
+
+
+
+@for $i from 1 through $breakpointsLength {
+  $breakpoint: nth($breakpoints, $i);
+  $breakpointName: nth($breakpoint, 1);
+
+  @if $i < $breakpointsLength {
+    $breakpointNext: nth($breakpoints, $i + 1);
+    $breakpointNameNext: nth($breakpointNext, 1);
+
+    @include media(#{'>=' + $breakpointName}, #{'<' + $breakpointNameNext}) {
+      .u-posAbsolute\@#{$breakpointName}Only {
+        position: absolute !important;
+      }
+
+      .u-posAbsoluteCenter\@#{$breakpointName}Only {
+        bottom: 0 !important;
+        left: 0 !important;
+        margin: auto !important;
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
+      }
+
+      .u-posFixed\@#{$breakpointName}Only {
+        position: fixed !important;
+        backface-visibility: hidden; /* 1 */
+      }
+
+      .u-posRelative\@#{$breakpointName}Only {
+        position: relative !important;
+      }
+
+      .u-posStatic\@#{$breakpointName}Only {
+        position: static !important;
+      }
+    }
+  }
+
+  @include media(#{'>=' + $breakpointName}) {
+    .u-posAbsolute\@#{$breakpointName}Up {
+      position: absolute !important;
+    }
+
+    .u-posAbsoluteCenter\@#{$breakpointName}Up {
+      bottom: 0 !important;
+      left: 0 !important;
+      margin: auto !important;
+      position: absolute !important;
+      right: 0 !important;
+      top: 0 !important;
+    }
+
+    .u-posFixed\@#{$breakpointName}Up {
+      position: fixed !important;
+      backface-visibility: hidden; /* 1 */
+    }
+
+    .u-posRelative\@#{$breakpointName}Up {
+      position: relative !important;
+    }
+
+    .u-posStatic\@#{$breakpointName}Up {
+      position: static !important;
+    }
+  }
+
+  @include media(#{'<' + $breakpointName}) {
+    .u-posAbsolute\@#{$breakpointName}Down {
+      position: absolute !important;
+    }
+
+    .u-posAbsoluteCenter\@#{$breakpointName}Down {
+      bottom: 0 !important;
+      left: 0 !important;
+      margin: auto !important;
+      position: absolute !important;
+      right: 0 !important;
+      top: 0 !important;
+    }
+
+    .u-posFixed\@#{$breakpointName}Down {
+      position: fixed !important;
+      backface-visibility: hidden; /* 1 */
+    }
+
+    .u-posRelative\@#{$breakpointName}Down {
+      position: relative !important;
+    }
+
+    .u-posStatic\@#{$breakpointName}Down {
+      position: static !important;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Settings.Defaults
+   ========================================================================== */
+
+/**
+ * Breakpoints
+ */
+
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  extralarge: 1280px
+);
+$breakpointsLength: length($breakpoints);
+
+
+
+/**
+ * Fonts
+ */
+
+$Font-defaultSans:                Arial, 'Helvetica Neue', Helvetica, sans-serif;
+$Font-defaultSerif:               Times, Georgia, 'Times New Roman', serif;
+
+$Font-openSans:                   'Open Sans', sans-serif;
+$Font-frankRuhlLibre:             'Frank Ruhl Libre', serif;
+
+
+
+/**
+ * Fonts
+ */
+
+$Color-primary:                   #000033;
+$Color-secondary:                 #96cbed;
+
+
+/**
+ * Project basic vars
+ */
+
+$Base-colorBackground:            #fff;
+$Base-colorText:                  #333;
+$Base-colorLinks:                 inherit;
+$Base-colorLinksHover:            inherit;
+
+$Base-selectionBackground:        $Base-colorText;
+$Base-selectionText:              $Base-colorBackground;
+
+$Base-fontFamily:                 $Font-openSans;
+$Base-fontSize:                   16px;
+
+$Base-lineHeight:                 1.5;
+
+$Base-normalWeight:               normal;
+$Base-strongWeight:               bold;
+
+$Base-unitV:                      20px;
+$Base-unitH:                      20px;
+
+// $Base-containerWidth:             1180px;
+// $Base-containerPadding:           20px;

@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Layout.Header
+   ========================================================================== */
+
+.l-Header {
+  height: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .l-Site--album & {
+    width: 100%;
+  }
+
+  @include media(">=large") {
+    position: fixed;
+    width: 50%;
+  }
+}
+
+.l-Header-bar {
+  padding: 40px 20px;
+  text-align: center;
+
+  @include media("<medium", "landscape") {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    text-align: left;
+  }
+
+  @include media(">=medium") {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 30px 40px;
+    text-align: left;
+  }
+
+  @include media(">=large") {
+    padding: 20px;
+  }
+
+  @include media(">=extralarge") {
+    padding: 30px 40px;
+  }
+}
+
+.l-Header-wrapMenu {
+  margin-bottom: 20px;
+
+  @include media(">=medium") {
+    margin-bottom: 0;
+  }
+}
+
+.l-Header-wrapLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .l-Site--album & {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+  }
+}

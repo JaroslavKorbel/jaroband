@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="l-Article">
+  <div class="l-Article-body">
+    <div class="l-Article-content">
+      <h2>{{ page.title }}</h2>
+      {% if page.embed.youtube %}
+        <div class="l-Article-wrapEmbed  o-Embed">
+          <iframe src='https://www.youtube.com/embed/{{ page.embed.youtube }}' frameborder='0' allowfullscreen></iframe>
+        </div>
+      {% endif %}
+      <div class="{% if page.embed.bandcamp %} l-Article-wrapEmbedSingle{% else %} l-Article-wrapEmbedAlbum{% endif %}">
+        <iframe style="border: 0; width: 100%; height: {% if page.embed.bandcamp %}120px{% else %}406px{% endif %};" src="https://bandcamp.com/EmbeddedPlayer/album=4244797262/size=large/bgcol=ffffff/linkcol=0687f5/{% if page.embed.bandcamp %}tracklist=false/{% endif %}artwork=small/{% if page.embed.bandcamp %}track={{ page.embed.bandcamp }}/{% endif %}transparent=true/" seamless><a href="http://jaroslavkorbel.bandcamp.com/album/eternalism">Eternalism by Jaroslav Korbel</a></iframe>
+      </div>
+    </div>
+    <div class="l-Article-wrapAside">
+      <div class="c-Aside">
+        <div class="l-Aside-header">
+          <h2 class="l-Aside-title">Lyrics</h2>
+        </div>
+        {{ content }}
+      </div>
+    </div>
+    <div class="l-Article-wrapAside">
+      <aside class="l-Aside" role="complementary">
+        <header class="l-Aside-header">
+          <h2 class="l-Aside-title">Playlist</h2>
+        </header>
+        <ul class="c-Album c-Album--list">
+          <li class="c-Album-item c-Album-item--1">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hidden-symbolism.html %}">Hidden Symbolism</a>
+          </li>
+          <li class="c-Album-item c-Album-item--2">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-forces.html %}">The Forces</a>
+          </li>
+          <li class="c-Album-item c-Album-item--3">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/forty-three.html %}">Forty Three</a>
+          </li>
+          <li class="c-Album-item c-Album-item--4">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hotel-room.html %}">Hotel Room</a>
+          </li>
+          <li class="c-Album-item c-Album-item--5">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/speculation.html %}">Speculation</a>
+          </li>
+          <li class="c-Album-item c-Album-item--6">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-curtain.html %}">The Curtain</a>
+          </li>
+          <li class="c-Album-item c-Album-item--7">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/afternooner.html %}">Afternooner</a>
+          </li>
+          <li class="c-Album-item c-Album-item--8">
+            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/stooges.html %}">Stooges</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</article>

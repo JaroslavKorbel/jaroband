@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Tools.Functions
+   ========================================================================== */
+
+/**
+ * Function for rem mixin which removes units.
+ */
+
+@function strip-unit($Num) {
+  @return $Num / ($Num * 0 + 1);
+}
+
+
+
+/**
+ * Basic fractions:
+ */
+
+@function quarter($Num) {
+  @return round($Num / 4);
+}
+
+@function third($Num) {
+  @return round($Num / 3);
+}
+
+@function halve($Num) {
+  @return round($Num / 2);
+}
+
+@function double($Num) {
+  @return round($Num * 2);
+}
+
+@function treble($Num) {
+  @return round($Num * 3);
+}
+
+@function quadruple($Num) {
+  @return round($Num * 4);
+}
