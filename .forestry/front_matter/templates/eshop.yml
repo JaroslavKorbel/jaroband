@@ -1,4 +1,6 @@
 ---
+pages:
+- _pages/eshop.html
 hide_body: true
 fields:
 - type: text
