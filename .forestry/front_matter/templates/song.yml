@@ -1,5 +1,6 @@
 ---
 pages:
+- _pages/album/the-curtain.html
 - _pages/album/the-forces.html
 hide_body: false
 fields:
