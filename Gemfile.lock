@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/jekyll/jekyll-assets.git
-  revision: de4f94f343a830462dcbe9fbec02c9aa9cedd63f
+  revision: 96c38e316f63b298553a64c3bd28ab747ded632c
   specs:
-    jekyll-assets (3.0.2)
+    jekyll-assets (3.0.3)
       activesupport (~> 5.0)
       execjs (~> 2.7)
       extras (~> 0.2)
@@ -53,7 +53,7 @@ GEM
       sass (~> 3.4)
     jekyll-watch (1.5.0)
       listen (~> 3.0, < 3.1)
-    kramdown (1.16.0)
+    kramdown (1.16.2)
     liquid (4.0.0)
     liquid-tag-parser (1.8.0)
       extras (~> 0.3)

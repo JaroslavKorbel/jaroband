@@ -29,30 +29,14 @@ layout: default
           <h2 class="l-Aside-title">Playlist</h2>
         </header>
         <ul class="c-Album c-Album--list">
-          <li class="c-Album-item c-Album-item--1">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hidden-symbolism.html %}">Hidden Symbolism</a>
-          </li>
-          <li class="c-Album-item c-Album-item--2">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-forces.html %}">The Forces</a>
-          </li>
-          <li class="c-Album-item c-Album-item--3">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/forty-three.html %}">Forty Three</a>
-          </li>
-          <li class="c-Album-item c-Album-item--4">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hotel-room.html %}">Hotel Room</a>
-          </li>
-          <li class="c-Album-item c-Album-item--5">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/speculation.html %}">Speculation</a>
-          </li>
-          <li class="c-Album-item c-Album-item--6">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-curtain.html %}">The Curtain</a>
-          </li>
-          <li class="c-Album-item c-Album-item--7">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/afternooner.html %}">Afternooner</a>
-          </li>
-          <li class="c-Album-item c-Album-item--8">
-            <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/stooges.html %}">Stooges</a>
-          </li>
+          {% assign songs = site.pages | sort: "order" %}
+          {% for song in songs %}
+            {% if song.layout == "song" %}
+              <li class="c-Album-item c-Album-item--{{ song.order }}">
+                <a class="c-Album-link" href='{{ site.baseurl }}{{ song.permalink | escape }}'>{{ song.title }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
         </ul>
       </aside>
     </div>

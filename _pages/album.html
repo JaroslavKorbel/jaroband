@@ -6,52 +6,15 @@ permalink: "/album/"
 ---
 
 <ul class="c-Album">
-  <li class="c-Album-item c-Album-item--1">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hidden-symbolism.html %}">
-      {% asset "hidden-symbolism.hover.png" alt="Hidden Symbolism" %}
-      {% asset "hidden-symbolism.png" alt="Hidden Symbolism" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--2">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-forces.html %}">
-      {% asset "the-forces.hover.png" alt="The Forces" %}
-      {% asset "the-forces.png" alt="The Forces" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--3">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/forty-three.html %}">
-      {% asset "forty-three.hover.png" alt="Forty Three" %}
-      {% asset "forty-three.png" alt="Forty Three" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--4">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/hotel-room.html %}">
-      {% asset "hotel-room.hover.png" alt="Hotel Room" %}
-      {% asset "hotel-room.png" alt="Hotel Room" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--5">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/speculation.html %}">
-      {% asset "speculation.hover.png" alt="Speculation" %}
-      {% asset "speculation.png" alt="Speculation" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--6">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/the-curtain.html %}">
-      {% asset "the-curtain.hover.png" alt="The Curtain" %}
-      {% asset "the-curtain.png" alt="The Curtain" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--7">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/afternooner.html %}">
-      {% asset "afternooner.hover.png" alt="Afternooner" %}
-      {% asset "afternooner.png" alt="Afternooner" %}
-    </a>
-  </li>
-  <li class="c-Album-item c-Album-item--8">
-    <a class="c-Album-link" href="{{ site.baseurl }}{% link _pages/album/stooges.html %}">
-      {% asset "stooges.hover.png" alt="Stooges" %}
-      {% asset "stooges.png" alt="Stooges" %}
-    </a>
-  </li>
+  {% assign songs = site.pages | sort: "order" %}
+  {% for song in songs %}
+    {% if song.layout == "song" %}
+      <li class="c-Album-item c-Album-item--{{ song.order }}">
+        <a class="c-Album-link" href='{{ site.baseurl }}{{ song.permalink | escape }}'>
+          {% asset "{{ song.coverhover | remove: '/_assets/img/' }}" alt="{{ song.title }}" %}
+          {% asset "{{ song.cover | remove: '/_assets/img/' }}" alt="{{ song.title }}" %}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
 </ul>

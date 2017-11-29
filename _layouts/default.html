@@ -24,7 +24,7 @@ layout: compress
     {% asset main !type %}
   </head>
   <body class="l-Site-body">
-    <header class="l-Header" role="banner" style='background-image: url({% asset "{{ page.background | remove: '/_assets/img/' }}" @path %});'>
+    <header class="l-Header" role="banner" style='background-image: url({{ page.background | remove: "/_assets/img/" | asset: "@path" }});'>
       <div class="l-Header-bar">
         {% assign default_paths = site.pages | map: "path" | sort: "order" %}
         {% assign page_paths = site.header_pages | default: default_paths %}
