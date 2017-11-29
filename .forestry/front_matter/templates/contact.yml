@@ -1,4 +1,6 @@
 ---
+pages:
+- _pages/contact.html
 hide_body: true
 fields:
 - type: text
