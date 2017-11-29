@@ -1,6 +1,19 @@
 ---
 hide_body: false
 fields:
+- type: text
+  name: layout
+  label: Layout
+  config:
+    required: true
+- type: text
+  name: title
+  label: Title
+  config:
+    required: true
+- type: file
+  name: background
+  label: Background
 - type: field_group_list
   label: Shows
   name: shows
