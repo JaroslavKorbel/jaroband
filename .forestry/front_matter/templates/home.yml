@@ -1,0 +1,28 @@
+---
+hide_body: false
+fields:
+- type: field_group_list
+  label: Shows
+  name: shows
+  fields:
+  - type: datetime
+    name: date
+    label: Date
+    config:
+      date_format: DD. MM. YYYY
+      required: true
+  - type: text
+    name: club
+    label: Club
+    config:
+      required: true
+  - type: text
+    name: note
+    label: Note
+  - type: text
+    name: town
+    label: Town
+    config:
+      required: true
+  config:
+    labelField: club
