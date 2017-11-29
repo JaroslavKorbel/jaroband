@@ -111,7 +111,7 @@
       }
     }
 
-    .l-Site--withoutIndicator & {
+    .l-Site--home.l-Site--withoutIndicator & {
       &:after {
         display: none;
       }
