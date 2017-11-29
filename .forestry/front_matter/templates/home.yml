@@ -27,6 +27,12 @@ fields:
       date_format: DD. MM. YYYY
       required: true
   - type: text
+    name: facebook
+    label: Facebook Event Link
+    description: 'Paste complete link, eg: https://www.facebook.com/events/123829051619637/'
+    config:
+      required: true
+  - type: text
     name: club
     label: Club
     config:
