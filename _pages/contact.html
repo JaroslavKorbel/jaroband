@@ -1,12 +1,13 @@
 ---
 layout: page
 title: Contact
-background: backgrounds/contact.jpg
+background: /_assets/img/contact.jpg
+avatar: /_assets/img/jaro.jpg
 permalink: /contact/
 ---
 
 <p>
-  {% asset "content/jaro.jpg" style="border-radius: 50%;" alt="Jaroslav Korbel" %}
+  {% asset "{{ page.avatar | remove: '/_assets/img/' }}" style="border-radius: 50%;" alt="Jaroslav Korbel" %}
 </p>
 <p>
   <a href="mailto:jaroslav@jaroband.cz">jaroslav@jaroband.cz</a><br>
