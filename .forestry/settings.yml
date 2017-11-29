@@ -2,7 +2,7 @@
 upload_path: "/_assets/img"
 frontmatter_file_url_template: "/_assets/img"
 body_file_url_template: "/_assets/img"
-new_page_extension: md
+new_page_extension: html
 auto_deploy: false
 admin_path: 
 webhook_url: 
