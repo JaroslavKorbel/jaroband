@@ -1,6 +1,4 @@
 ---
-pages:
-- _pages/album.html
 hide_body: true
 fields:
 - type: text
