@@ -3,13 +3,17 @@
    ========================================================================== */
 
 .c-Logo {
-  width: 356px;
+  width: 296px;
   height: 92px;
   margin-bottom: 0;
   color: $Color-primary;
   font-family: $Font-frankRuhlLibre;
   font-weight: normal;
   text-align: center;
+
+  @include media(">=medium") {
+    width: 356px;
+  }
 }
 
 .c-Logo-link {
@@ -27,7 +31,7 @@
     content: "";
     position: absolute;
     top: 5px;
-    width: 142px;
+    width: 112px;
     height: 1px;
     background-color: $Color-primary;
   }
@@ -38,6 +42,13 @@
 
   &:after {
     right: 1px;
+  }
+
+  @include media(">=medium") {
+    &:before,
+    &:after {
+      width: 142px;
+    }
   }
 }
 
