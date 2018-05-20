@@ -1,6 +1,4 @@
 ---
-pages:
-- 404.html
 hide_body: false
 is_partial: false
 fields:
@@ -17,3 +15,5 @@ fields:
 - type: file
   name: background
   label: Background
+pages:
+- 404.html

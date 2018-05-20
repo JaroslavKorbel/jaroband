@@ -1,6 +1,4 @@
 ---
-pages:
-- index.html
 hide_body: false
 is_partial: false
 fields:
@@ -48,3 +46,5 @@ fields:
       required: true
   config:
     labelField: club
+pages:
+- index.html
