@@ -16,4 +16,4 @@ fields:
   name: background
   label: Background
 pages:
-- 404.html
+- _pages/404.html
