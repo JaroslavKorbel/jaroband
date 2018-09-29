@@ -3,7 +3,13 @@ new_page_extension: html
 auto_deploy: false
 admin_path: 
 webhook_url: 
-collections: 
+sections:
+- type: jekyll-posts
+  label: Posts
+  create: all
+- type: jekyll-pages
+  label: Pages
+  create: all
 upload_dir: _assets/img
 public_path: "/_assets/img"
 front_matter_path: "/_assets/img"
