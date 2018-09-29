@@ -16,5 +16,3 @@ fields:
 - type: file
   name: background
   label: Background
-pages:
-- 404.html
