@@ -17,7 +17,7 @@ fields:
   name: background
   label: Background
 - type: field_group_list
-  label: Shows
+  label: Upcoming Shows
   name: shows
   fields:
   - type: datetime
