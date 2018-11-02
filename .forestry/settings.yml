@@ -10,11 +10,6 @@ sections:
 - type: jekyll-pages
   label: Pages
   create: all
-- type: directory
-  path: _data
-  label: Data
-  create: none
-  match: "**/*.{json,yaml,yml}"
 upload_dir: _assets/img
 public_path: "/_assets/img"
 front_matter_path: "/_assets/img"
